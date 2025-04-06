@@ -1,59 +1,100 @@
-# 101413749Comp3133Assignment2
+# Employee Management System (101413749_comp3133_assignment2)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
+A professional Employee Management System built with Angular, featuring authentication, CRUD operations, search functionality, and photo upload capabilities.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- User Authentication (Login/Signup/Logout)
+- Welcome Dashboard with quick navigation
+- Employee Management:
+  - List all employees with search and filter options
+  - Add new employees with photo upload
+  - Edit employee details
+  - View employee details
+  - Delete employees
+- Advanced Search by Department and Designation
+- Responsive design for mobile and desktop
 
-```bash
-ng serve
+## Technologies Used
+
+- Angular 16
+- Angular Material UI Components
+- RxJS for reactive programming
+- GraphQL for API communication
+- JWT for authentication
+
+## Development Setup
+
+1. Clone the repository:
+   ```
+   git clone <repository-url>
+   cd 101413749_comp3133_assignment2
+   ```
+
+2. Install dependencies:
+   ```
+   npm install
+   ```
+
+3. Run the development server:
+   ```
+   ng serve
+   ```
+
+4. Open browser and navigate to `http://localhost:4200/`
+
+## Production Build
+
+To build the application for production:
+
+```
+ng build --configuration=production
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+The build artifacts will be stored in the `dist/101413749_comp3133_assignment2/browser` directory.
 
-## Code scaffolding
+## Deployment
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Firebase Deployment
 
-```bash
-ng generate component component-name
-```
+1. Install Firebase CLI if not already installed:
+   ```
+   npm install -g firebase-tools
+   ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+2. Login to Firebase:
+   ```
+   firebase login
+   ```
 
-```bash
-ng generate --help
-```
+3. Initialize Firebase (if not already done):
+   ```
+   firebase init
+   ```
 
-## Building
+4. Deploy to Firebase:
+   ```
+   firebase deploy
+   ```
 
-To build the project run:
+## Project Structure
 
-```bash
-ng build
-```
+- `src/app/components/` - All Angular components
+- `src/app/services/` - Services for API communication
+- `src/app/guards/` - Authentication guards
+- `src/assets/` - Static assets like images
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## API Endpoints
 
-## Running unit tests
+The application communicates with a GraphQL API for all operations. The endpoints are configured in the environment files.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Author
 
-```bash
-ng test
-```
+- Student ID: 101413749
+- Name: [Your Name]
+- Course: COMP3133 Full Stack Development II
+- Assignment 2
 
-## Running end-to-end tests
+## License
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project is licensed under the MIT License.
