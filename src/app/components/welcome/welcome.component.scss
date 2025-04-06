@@ -1,0 +1,170 @@
+.welcome-container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f7fa;
+}
+
+.welcome-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  
+  h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: #3f51b5;
+    font-weight: 500;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+    color: #455a64;
+  }
+  
+  .welcome-subtitle {
+    font-size: 1.1rem;
+    color: #607d8b;
+    margin-top: 0.5rem;
+  }
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.dashboard-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  mat-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 1rem 1rem;
+  }
+  
+  mat-card-actions {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1rem;
+  }
+}
+
+.card-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  
+  mat-icon {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+    color: white;
+  }
+  
+  &.employee-icon {
+    background-color: #3f51b5;
+  }
+  
+  &.add-icon {
+    background-color: #4caf50;
+  }
+  
+  &.search-icon {
+    background-color: #ff9800;
+  }
+  
+  &.settings-icon {
+    background-color: #9c27b0;
+  }
+}
+
+.card-info {
+  text-align: center;
+  
+  h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #37474f;
+    font-weight: 500;
+  }
+  
+  p {
+    color: #78909c;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+}
+
+.welcome-info-card {
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  
+  mat-card-header {
+    padding: 1rem 1rem 0;
+  }
+  
+  mat-card-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #37474f;
+  }
+  
+  mat-card-content {
+    padding: 1rem;
+    
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.5;
+      color: #455a64;
+    }
+    
+    ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+      
+      li {
+        margin-bottom: 0.75rem;
+        line-height: 1.5;
+        color: #455a64;
+        
+        strong {
+          color: #3f51b5;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .welcome-header {
+    h1 {
+      font-size: 1.8rem;
+    }
+    
+    h2 {
+      font-size: 1.4rem;
+    }
+  }
+  
+  .dashboard-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+} 

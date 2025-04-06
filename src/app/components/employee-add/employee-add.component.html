@@ -1,0 +1,131 @@
+<div class="employee-add-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Add New Employee</mat-card-title>
+      <mat-card-subtitle>Complete all fields to create a new employee profile</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="form-container">
+        <div class="form-fields">
+          <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+            <h3 class="section-title">Personal Information</h3>
+            <div class="form-row">
+              <mat-form-field appearance="outline" class="form-field">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="firstName" required>
+                <mat-error *ngIf="submitted && f['firstName'].errors?.['required']">First name is required</mat-error>
+                <mat-error *ngIf="submitted && f['firstName'].errors?.['minlength']">First name must be at least 2 characters</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lastName" required>
+                <mat-error *ngIf="submitted && f['lastName'].errors?.['required']">Last name is required</mat-error>
+                <mat-error *ngIf="submitted && f['lastName'].errors?.['minlength']">Last name must be at least 2 characters</mat-error>
+              </mat-form-field>
+            </div>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" required type="email">
+              <mat-icon matSuffix>email</mat-icon>
+              <mat-error *ngIf="submitted && f['email'].errors?.['required']">Email is required</mat-error>
+              <mat-error *ngIf="submitted && f['email'].errors?.['email']">Email must be a valid email address</mat-error>
+            </mat-form-field>
+
+            <div class="form-row">
+              <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Gender</mat-label>
+                <mat-select formControlName="gender" required>
+                  <mat-option value="Male">Male</mat-option>
+                  <mat-option value="Female">Female</mat-option>
+                  <mat-option value="Other">Other</mat-option>
+                </mat-select>
+                <mat-error *ngIf="submitted && f['gender'].errors?.['required']">Gender is required</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Date of Joining</mat-label>
+                <input matInput formControlName="date_of_joining" [matDatepicker]="picker" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="submitted && f['date_of_joining'].errors?.['required']">Date of joining is required</mat-error>
+              </mat-form-field>
+            </div>
+
+            <h3 class="section-title">Employment Details</h3>
+            <div class="form-row">
+              <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Department</mat-label>
+                <mat-select formControlName="department" required>
+                  <mat-option value="Engineering">Engineering</mat-option>
+                  <mat-option value="HR">Human Resources</mat-option>
+                  <mat-option value="Finance">Finance</mat-option>
+                  <mat-option value="Marketing">Marketing</mat-option>
+                  <mat-option value="Sales">Sales</mat-option>
+                  <mat-option value="Operations">Operations</mat-option>
+                  <mat-option value="IT">IT</mat-option>
+                </mat-select>
+                <mat-error *ngIf="submitted && f['department'].errors?.['required']">Department is required</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Designation</mat-label>
+                <mat-select formControlName="designation" required>
+                  <mat-option value="Manager">Manager</mat-option>
+                  <mat-option value="Developer">Developer</mat-option>
+                  <mat-option value="Designer">Designer</mat-option>
+                  <mat-option value="Director">Director</mat-option>
+                  <mat-option value="Analyst">Analyst</mat-option>
+                  <mat-option value="HR Specialist">HR Specialist</mat-option>
+                  <mat-option value="Accountant">Accountant</mat-option>
+                </mat-select>
+                <mat-error *ngIf="submitted && f['designation'].errors?.['required']">Designation is required</mat-error>
+              </mat-form-field>
+            </div>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Salary (USD)</mat-label>
+              <input matInput formControlName="salary" required type="number" min="0" step="0.01" pattern="[0-9]*(\.[0-9]{0,2})?" inputmode="decimal" placeholder="Enter salary amount">
+              <span matPrefix>$&nbsp;</span>
+              <mat-error *ngIf="submitted && f['salary'].errors?.['required']">Salary is required</mat-error>
+              <mat-error *ngIf="submitted && f['salary'].errors?.['min']">Salary must be a positive number</mat-error>
+              <mat-error *ngIf="submitted && f['salary'].errors?.['numbersOnly']">Please enter a valid number</mat-error>
+              <mat-error *ngIf="submitted && f['salary'].errors?.['pattern']">Please enter a valid monetary amount</mat-error>
+            </mat-form-field>
+
+            <div class="button-row">
+              <button mat-button type="button" (click)="cancelAdd()">Cancel</button>
+              <button mat-raised-button color="primary" type="submit" [disabled]="loading">
+                <mat-spinner *ngIf="loading" [diameter]="24"></mat-spinner>
+                <span *ngIf="!loading">Add Employee</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="photo-section">
+          <h3 class="section-title">Employee Photo</h3>
+          <div class="photo-upload-container" [class.has-photo]="photoBase64">
+            <div class="photo-preview" *ngIf="photoBase64">
+              <img [src]="photoBase64" alt="Employee photo preview">
+              <button mat-mini-fab color="warn" class="remove-photo" (click)="removePhoto()" title="Remove photo">
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+            <div class="upload-placeholder" *ngIf="!photoBase64" (click)="fileInput.click()">
+              <mat-icon>add_photo_alternate</mat-icon>
+              <p>Click to upload photo</p>
+            </div>
+            <input #fileInput type="file" style="display: none" accept="image/*" (change)="onFileSelected($event)">
+          </div>
+          <p class="photo-instructions">Upload a professional photo (JPG, PNG). Max 5MB.</p>
+          <button mat-stroked-button color="primary" class="upload-button" (click)="fileInput.click()" *ngIf="!photoBase64">
+            <mat-icon>cloud_upload</mat-icon>
+            Browse Files
+          </button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,139 @@
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f7fa;
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.login-card-container {
+  width: 100%;
+  max-width: 450px;
+  padding: 1.5rem;
+}
+
+.login-card {
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.login-header {
+  margin-bottom: 2rem;
+  text-align: center;
+  
+  .login-logo {
+    background-color: #3f51b5;
+    color: white;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 4px 10px rgba(63, 81, 181, 0.3);
+    
+    mat-icon {
+      font-size: 36px;
+      width: 36px;
+      height: 36px;
+    }
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #3f51b5;
+  }
+  
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #607d8b;
+    margin: 0;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  
+  mat-form-field {
+    margin-bottom: 1rem;
+  }
+}
+
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  
+  .forgot-password {
+    color: #3f51b5;
+    text-decoration: none;
+    font-size: 0.9rem;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.login-actions {
+  display: flex;
+  justify-content: center;
+  
+  .login-button {
+    width: 100%;
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    mat-spinner {
+      margin: 0 auto;
+    }
+  }
+}
+
+.login-footer {
+  margin-top: 2rem;
+  text-align: center;
+  
+  p {
+    margin: 0;
+    color: #607d8b;
+    font-size: 0.95rem;
+    
+    a {
+      color: #3f51b5;
+      text-decoration: none;
+      font-weight: 500;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .login-card {
+    padding: 1.5rem;
+  }
+}

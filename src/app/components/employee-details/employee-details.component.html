@@ -1,0 +1,103 @@
+<div class="employee-details-container">
+  <div class="header">
+    <button mat-button (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+      Back to List
+    </button>
+  </div>
+
+  <div *ngIf="loading" class="loading-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+
+  <mat-card *ngIf="!loading && !error && employee" class="employee-card">
+    <div class="employee-card-content">
+      <div class="employee-photo-section">
+        <div class="employee-photo" *ngIf="employee.employee_photo">
+          <img [src]="employee.employee_photo" alt="Employee photo">
+        </div>
+        <div class="employee-photo placeholder" *ngIf="!employee.employee_photo">
+          <mat-icon>person</mat-icon>
+        </div>
+      </div>
+      
+      <div class="employee-details-section">
+        <mat-card-header>
+          <mat-card-title>{{ employee.first_name }} {{ employee.last_name }}</mat-card-title>
+          <mat-card-subtitle>{{ employee.designation }} - {{ employee.department }}</mat-card-subtitle>
+        </mat-card-header>
+        
+        <mat-card-content>
+          <div class="details-section">
+            <h3 class="section-title">Personal Information</h3>
+            
+            <div class="info-grid">
+              <div class="info-item">
+                <div class="info-label">
+                  <mat-icon>email</mat-icon>
+                  <span>Email</span>
+                </div>
+                <div class="info-value">{{ employee.email }}</div>
+              </div>
+              
+              <div class="info-item">
+                <div class="info-label">
+                  <mat-icon>wc</mat-icon>
+                  <span>Gender</span>
+                </div>
+                <div class="info-value">{{ employee.gender }}</div>
+              </div>
+              
+              <div class="info-item">
+                <div class="info-label">
+                  <mat-icon>badge</mat-icon>
+                  <span>Position</span>
+                </div>
+                <div class="info-value">{{ employee.designation }}</div>
+              </div>
+              
+              <div class="info-item">
+                <div class="info-label">
+                  <mat-icon>domain</mat-icon>
+                  <span>Department</span>
+                </div>
+                <div class="info-value">{{ employee.department }}</div>
+              </div>
+              
+              <div class="info-item">
+                <div class="info-label">
+                  <mat-icon>payments</mat-icon>
+                  <span>Salary</span>
+                </div>
+                <div class="info-value">{{ employee.salary | currency }}</div>
+              </div>
+              
+              <div class="info-item">
+                <div class="info-label">
+                  <mat-icon>today</mat-icon>
+                  <span>Joined</span>
+                </div>
+                <div class="info-value">{{ employee.date_of_joining | date:'mediumDate' }}</div>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </div>
+    </div>
+    
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="editEmployee(employee.id)">
+        <mat-icon>edit</mat-icon>
+        Edit Employee
+      </button>
+      <button mat-stroked-button color="warn" (click)="deleteEmployee(employee.id)">
+        <mat-icon>delete</mat-icon>
+        Delete Employee
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

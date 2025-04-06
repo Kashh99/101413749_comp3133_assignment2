@@ -1,1 +1,133 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Fixed navbar spacing - ensures content doesn't get hidden */
+.app-container {
+  padding-top: 64px; /* Height of the navbar */
+}
+
+/* This will prevent overlap issues with all component containers */
+.component-container {
+  padding-top: 1rem;
+}
+
+html, body { 
+  height: 100%; 
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f7fa;
+  color: #37474f;
+}
+
+/* Material Design Elements Styling */
+.mat-mdc-card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07) !important;
+  border-radius: 8px !important;
+  transition: box-shadow 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
+.mat-mdc-raised-button.mat-primary {
+  background-color: #3f51b5;
+}
+
+.mat-mdc-raised-button.mat-accent {
+  background-color: #ff4081;
+}
+
+/* Snackbar customization */
+.success-snackbar {
+  background-color: #43a047;
+  color: white;
+  
+  .mat-simple-snackbar-action {
+    color: white;
+  }
+}
+
+.error-snackbar {
+  background-color: #d32f2f;
+  color: white;
+  
+  .mat-simple-snackbar-action {
+    color: white;
+  }
+}
+
+.warning-snackbar {
+  background-color: #ffa000;
+  color: white;
+  
+  .mat-simple-snackbar-action {
+    color: white;
+  }
+}
+
+/* Global form styles */
+mat-form-field {
+  width: 100%;
+}
+
+.mat-mdc-form-field-error {
+  font-size: 12px;
+}
+
+button:not(.mat-icon-button) {
+  min-width: 120px;
+}
+
+button.mat-mdc-raised-button {
+  border-radius: 4px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 0 1.5rem;
+}
+
+/* Animation utilities */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive utilities */
+.hide-mobile {
+  @media (max-width: 768px) {
+    display: none !important;
+  }
+}
+
+.show-mobile {
+  display: none;
+  
+  @media (max-width: 768px) {
+    display: block !important;
+  }
+}
+
+/* Loading and progress indicators */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.full-page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}

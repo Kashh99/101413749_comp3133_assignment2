@@ -1,0 +1,66 @@
+<mat-toolbar color="primary" class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-brand">
+      <button mat-icon-button class="menu-button hide-gt-sm" (click)="toggleMenu()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="logo">
+        <mat-icon>business</mat-icon>
+        Employee Management System
+      </span>
+    </div>
+    
+    <div class="navbar-links" [class.show-menu]="showMenu">
+      <ng-container *ngIf="isLoggedIn">
+        <button mat-button routerLink="/welcome" routerLinkActive="active-link">
+          <mat-icon>dashboard</mat-icon>
+          <span>Dashboard</span>
+        </button>
+        <button mat-button routerLink="/employees" routerLinkActive="active-link">
+          <mat-icon>people</mat-icon>
+          <span>Employees</span>
+        </button>
+        <button mat-button routerLink="/employees/add" routerLinkActive="active-link">
+          <mat-icon>person_add</mat-icon>
+          <span>Add Employee</span>
+        </button>
+      </ng-container>
+      
+      <ng-container *ngIf="!isLoggedIn">
+        <button mat-button routerLink="/login" routerLinkActive="active-link">
+          <mat-icon>login</mat-icon>
+          <span>Login</span>
+        </button>
+        <button mat-button routerLink="/signup" routerLinkActive="active-link">
+          <mat-icon>person_add</mat-icon>
+          <span>Signup</span>
+        </button>
+      </ng-container>
+    </div>
+    
+    <div class="navbar-actions">
+      <ng-container *ngIf="isLoggedIn">
+        <div class="user-profile" [matMenuTriggerFor]="userMenu">
+          <div class="user-avatar">{{ username.charAt(0) | uppercase }}</div>
+          <span class="username hide-xs">{{ username }}</span>
+          <mat-icon>arrow_drop_down</mat-icon>
+        </div>
+        <mat-menu #userMenu="matMenu" xPosition="before">
+          <button mat-menu-item routerLink="/welcome">
+            <mat-icon>person</mat-icon>
+            <span>Profile</span>
+          </button>
+          <button mat-menu-item routerLink="/welcome">
+            <mat-icon>settings</mat-icon>
+            <span>Settings</span>
+          </button>
+          <mat-divider></mat-divider>
+          <button mat-menu-item (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+      </ng-container>
+    </div>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,149 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.username {
+  margin: 0 15px;
+  font-size: 14px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 64px;
+  padding: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 0 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+    
+    mat-icon {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  
+  button {
+    height: 64px;
+    padding: 0 1rem;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    border-radius: 0;
+    
+    &.active-link {
+      background-color: rgba(255, 255, 255, 0.15);
+      font-weight: 500;
+    }
+    
+    mat-icon {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .user-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #3f51b5;
+    font-weight: 500;
+    margin-right: 0.5rem;
+  }
+  
+  .username {
+    margin-right: 0.5rem;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .navbar-links {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background-color: #3f51b5;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+    
+    &.show-menu {
+      transform: translateY(0);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    button {
+      width: 100%;
+      text-align: left;
+      justify-content: flex-start;
+      
+      span {
+        flex: 1;
+      }
+    }
+  }
+}
+
+.hide-gt-sm {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hide-gt-sm {
+    display: block;
+  }
+}
+
+.hide-xs {
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
