@@ -27,7 +27,7 @@ A professional Employee Management System built with Angular, featuring authenti
 
 1. Clone the repository:
    ```
-   git clone <repository-url>
+   git clone https://github.com/Kashh99/_comp3133_assignment2.git
    cd 101413749_comp3133_assignment2
    ```
 
@@ -55,27 +55,34 @@ The build artifacts will be stored in the `dist/101413749_comp3133_assignment2/b
 
 ## Deployment
 
-### Firebase Deployment
+### Vercel Deployment
 
-1. Install Firebase CLI if not already installed:
+1. Install Vercel CLI if not already installed:
    ```
-   npm install -g firebase-tools
-   ```
-
-2. Login to Firebase:
-   ```
-   firebase login
+   npm install -g vercel
    ```
 
-3. Initialize Firebase (if not already done):
+2. Login to Vercel:
    ```
-   firebase init
+   vercel login
    ```
 
-4. Deploy to Firebase:
+3. Deploy to Vercel:
    ```
-   firebase deploy
+   vercel
    ```
+
+4. For production deployment:
+   ```
+   vercel --prod
+   ```
+
+Alternatively, you can connect your GitHub repository to Vercel for automatic deployments:
+
+1. Go to [Vercel](https://vercel.com/) and sign in
+2. Click "New Project" and import your GitHub repository
+3. Configure the project settings (use the production output directory: `dist/101413749_comp3133_assignment2/browser`)
+4. Deploy the project
 
 ## Project Structure
 
@@ -91,7 +98,7 @@ The application communicates with a GraphQL API for all operations. The endpoint
 ## Author
 
 - Student ID: 101413749
-- Name: [Your Name]
+- Name: Kashyap Mavani
 - Course: COMP3133 Full Stack Development II
 - Assignment 2
 
