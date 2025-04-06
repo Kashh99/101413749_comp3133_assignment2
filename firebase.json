@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/101413749_comp3133_assignment2/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+} 
